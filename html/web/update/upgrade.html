@@ -1,0 +1,112 @@
+{{template "header" .}}
+<script src="assets/js/upgrade.js"></script>
+	<!-- crumb -->
+	<section class="crumb top-25 layui-hide-xs">
+		<div class="layui-container">
+			<span class="layui-breadcrumb">
+				<a href="/"><i class="layui-icon layui-icon-home"></i></a>
+				<span lay-separator="">/</span>
+				<a href="../index/index.html">首页</a>
+				<span lay-separator="">/</span>
+				<a href="#">升级更新</a>
+				<!--<a><cite></cite></a>-->
+			</span>
+		</div>
+	</section>
+
+	<!-- body -->
+	<section class="body top-25">
+		<div class="layui-container">
+			<div class="layui-row layui-col-space20">
+				<div class="layui-col-md6">
+					<div class="block">
+						<!-- posts -->
+						<div class="posts top-25" style="width:100%;">
+							<!-- post list -->
+							<form action="#" method="post" enctype="multipart/form-data" id="uploadForm">
+								<ul>
+									<li class="post-item">
+										<div class="post-body">
+											<div class="post-left">
+												<div class="post-info">
+													<h2>1.升级更新</h2>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="post-item">
+										<div class="post-body">
+											<div class="post-left">
+												<div class="post-info">
+													<span>升级记录描述:</span>
+												</div>
+												<h3 class="post-title">
+													<a href="#"><input type="text"  id="remarks"  name="remarks" placeholder="请对本次升级进行说明" size="57" class="inpMain" style="width:80%" /></a>
+												</h3>
+											</div>
+										</div>
+									</li>
+									<li class="post-item">
+										<div class="post-body">
+											<div class="post-left">
+												<div class="post-info">
+													<span>升级文件:</span>
+												</div>
+												<h3 class="post-title">
+													<!--onchange="handleFiles(this.files)"-->
+													<a href="#"><input type="file" name="uploadfile" id="uploadfile" class="inpFlie" /></a>
+												</h3>
+											</div>
+										</div>
+									</li>
+									<li class="post-item">
+										<div class="post-body">
+											<div class="post-left">
+												<div class="post-info">
+													<span style="color: red; display: inline;" id="step">升级未开始</span>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="post-item">
+										<div class="post-body">
+											<div class="post-left">
+												<div class="post-info">
+													<span><input id="commitBT" class="btn" type="button" value="提交"  onclick="submitUpgrade();"/></span>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</form>
+								<ul>
+									<li class="post-item">
+										<div class="post-body">
+											<div class="post-left">
+												<div class="post-info">
+													<h2>2.日志</h2>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="post-item">
+										<div class="post-body">
+											<div class="post-left">
+												<div class="post-info">
+													<span><input id="downloadLogBT" class="btn" type="button" value="下载日志" onclick="downloadLog();" /></span>
+												</div>
+											</div>
+										</div>
+									</li>
+
+								</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{{template "footer" .}}
+</body>
+</html>

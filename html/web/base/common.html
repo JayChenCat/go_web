@@ -1,0 +1,101 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>DMS后台管理-首页</title>
+    <link rel="stylesheet" href="assets/libs/layui/css/layui.css">
+    <link rel="stylesheet" href="assets/libs/swiper/css/swiper.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- 自定义css -->
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+
+
+    <script type="text/javascript" src="assets/js/md5.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.serializejson.js"></script>
+    <script type="text/javascript" src="layer/layer.js"></script>
+    <script type="text/javascript" src="assets/js/global.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.tab.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <!-- browser version check -->
+    <script>
+        if (!!window.ActiveXObject || "ActiveXObject" in window) {
+            alert("您正在使用的浏览器版本过低，为了您的最佳体验，请先升级浏览器。");
+            window.location.href = "https://support.dmeng.net/upgrade-your-browser.html?referrer=" + encodeURIComponent(window.location.href);
+        }
+    </script>
+
+    <script src="assets/libs/badbrowser/js/badbrowser.js"></script>
+    <script src="assets/libs/layui/layui.js"></script>
+    <script src="assets/js/config.js"></script>
+
+
+
+</head>
+<body class="bg-body">
+<header class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <h1 class="logo"><a class="navbar-brand" href="/index">DMS后台管理</a></h1>
+        </div>
+        <nav class="collapse navbar-right navbar-collapse" role="navigation">
+            <ul class="list-inline navbar-nav" id="nav_menu">
+                <li class="hover">
+                    <a href="/index">首页</a>
+                </li>
+
+                <li>
+                    <a href="/system">系统设置</a>
+                </li>
+
+                <li>
+                    <a href="/video">查看视频</a>
+                </li>
+
+                <li>
+                    <a href="/upgrade">升级更新</a>
+                </li>
+                <li>
+                    <a href="/manager">网站管理员</a>
+                </li>
+            </ul>
+            <ul class="exit_user_nav">
+                <li>
+                    <a href="javascript:;" >
+                        <strong id="currUser">您好，
+                            {{if .UserName}}
+                            {{.UserName}}
+                            {{end}}
+                        </strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        |
+                    </a>
+                </li>
+                <li>
+                    <a href="signOut" ><strong>退出系统</strong></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+{{end}}
+
+{{define "footer"}}
+<!-- footer -->
+<section class="footer">
+    <p>
+        Copyright © 2022<a href="javascript:;" target="_blank">https://119.91.142.127:8083/login</a>
+        <a href="javascript:;" target="_blank">csj 仅供个人学习使用，请勿转发</a>
+        <!--<a href="javascript:;" target="_blank" rel="nofollow">黑ICP备123456789号</a>-->
+    </p>
+</section>
+{{end}}
+</body>
+</html>

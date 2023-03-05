@@ -1,0 +1,117 @@
+{{template "header" .}}
+<script src="assets/js/pager.js"></script>
+<script src="assets/js/video.js"></script>
+	<!-- crumb -->
+	<section class="crumb top-25 layui-hide-xs">
+		<div class="layui-container">
+			<span class="layui-breadcrumb">
+				<a href="/"><i class="layui-icon layui-icon-home"></i></a>
+				<span lay-separator="">/</span>
+				<a href="../index/index.html">首页</a>
+				<span lay-separator="">/</span>
+				<a href="#">视频列表</a>
+				<!--<a><cite></cite></a>-->
+			</span>
+		</div>
+	</section>
+
+	<!-- body -->
+	<section class="body top-25">
+		<div class="layui-container">
+			<div class="layui-row layui-col-space20">
+				<!-- center -->
+				<div class="layui-col-md6">
+					<div class="block">
+						<!-- 视频播放 -->
+						<div class="slide">
+							<div class="block-header flex-def flex-zBetween">
+								<h2>
+									<i class="layui-icon layui-icon-star best-icon"></i>
+									查看视频
+								</h2>
+							</div>
+							<div id="slide_container" class="swiper-container">
+								<div class="slide-wrap swiper-wrapper">
+									<div class="slide-item swiper-slide">
+										<video id="video"  class="video-js"  controls="controls" preload="auto" >
+											<!--<source src="//media.html5media.info/video.mp4" type="video/mp4"></source>-->
+											您的浏览器不支持播放该视频！
+										</video>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 查询视频列表 -->
+						<div class="topic top-25">
+							<div class="block-header flex-def flex-zBetween">
+								<h2>
+									<i class="layui-icon layui-icon-heart best-icon"></i>
+									查找视频
+								</h2>
+							</div>
+							<ul>
+								<li class="post-item">
+									<div class="post-body">
+										<div class="post-left">
+											<div class="post-info">
+												<h2>1.选择日期：</h2>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="post-item">
+									<div class="post-body">
+										<div class="post-left">
+											<div class="post-info">
+												<span><input id="dateInput" type="date" class="measureDate" placeholder="请选择日期"></span>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="post-item">
+									<div class="post-body">
+										<div class="post-left">
+											<div class="post-info">
+												<h2>2.视频类型：</h2>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="post-item">
+									<div class="post-body">
+										<div class="post-left">
+											<div class="post-info">
+												<label><input type="radio" name="videoType" value="1" checked="checked" />告警视频</label>
+												<label style="margin-left:10px;"><input type="radio" name="videoType" value="2" />长视频</label>
+												<input id="commitBT" type="button" class="btn" style="margin-left: 15px" onClick="queryVideoInfoClick()" value="查询" />
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+
+							<ul class="topic-tags video_li" id="list">
+							</ul>
+						</div>
+						<!-- pager -->
+						<div id="pager" class="pager">
+							<!-- <span id="spanFirst">第一页</span>-->
+							<span id="Pre" onclick="pagePagingClick(1,0);">上一页</span>
+							<span id="Next" onclick="pagePagingClick(0,0);">下一页</span>
+							<!-- <span id="spanLast">最后一页</span>-->
+							第<label id="PageNum">1</label>页/
+							共<label id="TotalPage">0</label>页
+							共<label id="Total">0</label>条
+							每页<label id="pageCount">18</label>条
+							选择页码:<select id="select_Page" onchange="selectChange(0);" />
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+	</section>
+
+{{template "footer" .}}
+</body>
+</html>

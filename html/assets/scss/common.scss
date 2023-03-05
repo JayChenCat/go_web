@@ -1,0 +1,245 @@
+/* 定义 */
+.flex-def {
+  display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box; /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox; /* 混合版本语法: IE 10 */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+
+/* 主轴居中 */
+.flex-zCenter {
+  -webkit-box-pack: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/* 主轴两端对齐 */
+.flex-zBetween {
+  -webkit-box-pack: justify;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+/* 主轴end对齐 */
+.flex-zEnd {
+  -webkit-box-pack: end;
+  -moz-justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+/* 主轴start对齐 */
+.flex-zStart {
+  -webkit-box-pack: start;
+  -moz-justify-content: start;
+  -webkit-justify-content: start;
+  justify-content: start;
+}
+
+/* 侧轴居中 */
+.flex-cCenter {
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+/* 侧轴start对齐 */
+.flex-cStart {
+  -webkit-box-align: start;
+  -moz-align-items: start;
+  -webkit-align-items: start;
+  align-items: start;
+}
+
+/* 侧轴底部对齐 */
+.flex-cEnd {
+  -webkit-box-align: end;
+  -moz-align-items: flex-end;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/* 侧轴文本基线对齐 */
+.flex-cBaseline {
+  -webkit-box-align: baseline;
+  -moz-align-items: baseline;
+  -webkit-align-items: baseline;
+  align-items: baseline;
+}
+
+/* 侧轴上下对齐并铺满 */
+.flex-cStretch {
+  -webkit-box-align: stretch;
+  -moz-align-items: stretch;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+
+/* 主轴从上到下 */
+.flex-zTopBottom {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+/* 主轴从下到上 */
+.flex-zBottomTop {
+  -webkit-box-pack: end;
+  -webkit-box-direction: reverse;
+  -webkit-box-orient: vertical;
+  -moz-flex-direction: column-reverse;
+  -webkit-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+/* 主轴从左到右 */
+.flex-zLeftRight {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+/* 主轴从右到左 */
+.flex-zRightLeft {
+  -webkit-box-pack: end;
+  -webkit-box-direction: reverse;
+  -webkit-box-orient: horizontal;
+  -moz-flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+/* 是否允许子元素伸缩 */
+.flex-item {
+  -webkit-box-flex: 1.0;
+  -moz-flex-grow: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+/* 子元素的显示次序 */
+.flex-order{
+  -webkit-box-ordinal-group: 1;
+  -moz-order: 1;
+  -webkit-order: 1;
+  order: 1;
+}
+
+/*覆盖*/
+.swiper-button-prev, 
+.swiper-button-next {
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.2);
+    transform: translateY(-50%);
+    top: 50%;
+    margin-top: 0;
+}
+.swiper-button-prev:after, 
+.swiper-button-next:after {
+    color: #fff;
+    line-height: calc(var(--swiper-navigation-size) / 44 * 27);
+    text-align: center;
+} 
+.swiper-button-prev, 
+.swiper-button-next {
+    width: calc(var(--swiper-navigation-size) / 44 * 27);
+    height: calc(var(--swiper-navigation-size) / 44 * 27); 
+}
+.swiper-button-prev:after, 
+.swiper-button-next:after {
+    font-size: .75rem;
+} 
+.best .swiper-button-prev, 
+.best .swiper-button-next {
+    width: calc(var(--swiper-navigation-size) / 44 * 27 * 1.2);
+    height: calc(var(--swiper-navigation-size) / 44 * 27 * 1.2); 
+}
+.best .swiper-button-prev:after, 
+.best .swiper-button-next:after {
+    font-size: .875rem;
+} 
+
+/*背景色*/
+.bg-body{
+    background-color: #eeeeee;
+}
+.bg-white{
+    background-color: #fff;
+}
+
+/*字体位置*/
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align:center;
+}
+
+
+/*阴影*/
+.shadow {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+/*外边距*/
+.top-25{
+  margin-top:25px;
+}
+
+/*公共样式*/
+.block{
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 9px 0 rgba(0,0,0,.05);
+    border: 1px solid #e6e8eb;
+    /*border-radius: 8px;*/
+    position: relative;
+    .block-header{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        h2{
+            color: #2e3033;
+            .best-icon{
+                font-size: 1.125rem; 
+                color:#FF5722;
+            }
+        }
+    }
+    .more {
+      font-size: .75rem;
+      color: #c6a05e;
+      line-height: 1.125rem;
+      display: flex;
+      align-items: center;
+      vertical-align: middle;
+    }
+
+    
+}
+.user-info{
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    .avatar{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    .user-profile{
+      span{
+          margin: 0 5px;
+          color: #666;
+      }
+      .post-time{
+          color: #999;
+      }
+    }
+}

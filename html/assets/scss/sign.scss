@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(to right, #ffdde1, #ee9ca7, #a7bfe8, #6190e8);
+    background-size: 500% 500%;
+    transition: background 3s ease;
+    background-position: 50% 50%;
+}
+body.is-login {
+    background-position: 100% 50%;
+}
+.sign{
+	border-radius: 8px;
+	padding:45px 25px;
+	.sign-title{
+		text-align: center;
+		h3{
+			color: #333;
+			font-size: 2rem;
+		}
+		p {
+			color: #666;
+			line-height: 24px;
+			margin: 25px 0;
+		}
+	}
+	.sign-form{
+		margin: 35px 0;
+		.form-block{
+			margin-top: 18px;
+		}
+	}
+	.other {
+		margin-bottom: 35px;
+		a{
+			color:#666;
+			&:hover{
+				color: #333;
+			}
+		}
+	}
+
+}

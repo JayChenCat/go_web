@@ -1,0 +1,58 @@
+/*
+ * Start layui2 - webtpl v1.0.0 (http://www.daimajie.com)
+ * Copyright 2019-2020 daimajie
+ */
+
+
+body {
+  background: -webkit-gradient(linear, left top, right top, from(#ffdde1), color-stop(#ee9ca7), color-stop(#a7bfe8), to(#6190e8));
+  background: linear-gradient(to right, #ffdde1, #ee9ca7, #a7bfe8, #6190e8);
+  background-size: 500% 500%;
+  -webkit-transition: background 3s ease;
+  transition: background 3s ease;
+  background-position: 50% 50%;
+}
+
+body.is-login {
+  background-position: 100% 50%;
+}
+
+.sign {
+  border-radius: 8px;
+  padding: 45px 25px;
+}
+
+.sign .sign-title {
+  text-align: center;
+}
+
+.sign .sign-title h3 {
+  color: #333;
+  font-size: 2rem;
+}
+
+.sign .sign-title p {
+  color: #666;
+  line-height: 24px;
+  margin: 25px 0;
+}
+
+.sign .sign-form {
+  margin: 35px 0;
+}
+
+.sign .sign-form .form-block {
+  margin-top: 18px;
+}
+
+.sign .other {
+  margin-bottom: 35px;
+}
+
+.sign .other a {
+  color: #666;
+}
+
+.sign .other a:hover {
+  color: #333;
+}

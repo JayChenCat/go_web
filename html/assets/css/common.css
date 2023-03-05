@@ -1,0 +1,313 @@
+/*
+ * Start layui2 - webtpl v1.0.0 (http://www.daimajie.com)
+ * Copyright 2019-2020 daimajie
+ */
+
+
+@charset "UTF-8";
+.html_css {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* 定义 */
+.flex-def {
+    display: -webkit-box;
+    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox;
+    /* 混合版本语法: IE 10 */
+    display: -webkit-flex;
+    /* 新版本语法: Chrome 21+ */
+    display: flex;
+    /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+
+/* 主轴居中 */
+.flex-zCenter {
+  -webkit-box-pack: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+/* 主轴两端对齐 */
+.flex-zBetween {
+  -webkit-box-pack: justify;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+/* 主轴end对齐 */
+.flex-zEnd {
+  -webkit-box-pack: end;
+  -moz-justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+/* 主轴start对齐 */
+.flex-zStart {
+  -webkit-box-pack: start;
+  -moz-justify-content: start;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+}
+
+/* 侧轴居中 */
+.flex-cCenter {
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+/* 侧轴start对齐 */
+.flex-cStart {
+  -webkit-box-align: start;
+  -moz-align-items: start;
+  -webkit-align-items: start;
+  -ms-flex-align: start;
+  align-items: start;
+}
+
+/* 侧轴底部对齐 */
+.flex-cEnd {
+  -webkit-box-align: end;
+  -moz-align-items: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+/* 侧轴文本基线对齐 */
+.flex-cBaseline {
+  -webkit-box-align: baseline;
+  -moz-align-items: baseline;
+  -webkit-align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+/* 侧轴上下对齐并铺满 */
+.flex-cStretch {
+  -webkit-box-align: stretch;
+  -moz-align-items: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+/* 主轴从上到下 */
+.flex-zTopBottom {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+/* 主轴从下到上 */
+.flex-zBottomTop {
+  -webkit-box-pack: end;
+  -webkit-box-direction: reverse;
+  -webkit-box-orient: vertical;
+  -moz-flex-direction: column-reverse;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+/* 主轴从左到右 */
+.flex-zLeftRight {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+/* 主轴从右到左 */
+.flex-zRightLeft {
+  -webkit-box-pack: end;
+  -webkit-box-direction: reverse;
+  -webkit-box-orient: horizontal;
+  -moz-flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+/* 是否允许子元素伸缩 */
+.flex-item {
+  -webkit-box-flex: 1.0;
+  -moz-flex-grow: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+/* 子元素的显示次序 */
+.flex-order {
+  -webkit-box-ordinal-group: 1;
+  -moz-order: 1;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+/*覆盖*/
+.swiper-button-prev,
+.swiper-button-next {
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  top: 50%;
+  margin-top: 0;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: #fff;
+  line-height: -webkit-calc(var(--swiper-navigation-size) / 44 * 27);
+  line-height: calc(var(--swiper-navigation-size) / 44 * 27);
+  text-align: center;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: -webkit-calc(var(--swiper-navigation-size) / 44 * 27);
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: -webkit-calc(var(--swiper-navigation-size) / 44 * 27);
+  height: calc(var(--swiper-navigation-size) / 44 * 27);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: .75rem;
+}
+
+.best .swiper-button-prev,
+.best .swiper-button-next {
+  width: -webkit-calc(var(--swiper-navigation-size) / 44 * 27 * 1.2);
+  width: calc(var(--swiper-navigation-size) / 44 * 27 * 1.2);
+  height: -webkit-calc(var(--swiper-navigation-size) / 44 * 27 * 1.2);
+  height: calc(var(--swiper-navigation-size) / 44 * 27 * 1.2);
+}
+
+.best .swiper-button-prev:after,
+.best .swiper-button-next:after {
+  font-size: .875rem;
+}
+
+/*背景色*/
+.bg-body {
+  background-color: #eeeeee;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+/*字体位置*/
+.text-right {
+    text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/*阴影*/
+.shadow {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+/*外边距*/
+.top-25 {
+  margin-top: 25px;
+}
+
+/*公共样式*/
+.block {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e6e8eb;
+  /*border-radius: 8px;*/
+  position: relative;
+}
+
+.block .block-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.block .block-header h2 {
+  color: #2e3033;
+}
+
+.block .block-header h2 .best-icon {
+  font-size: 1.125rem;
+  color: #FF5722;
+}
+
+.block .more {
+  font-size: .75rem;
+  color: #c6a05e;
+  line-height: 1.125rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.user-info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.user-info .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.user-info .user-profile span {
+  margin: 0 5px;
+  color: #666;
+}
+
+.user-info .user-profile .post-time {
+  color: #999;
+}

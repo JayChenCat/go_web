@@ -1,0 +1,77 @@
+{{template "header" .}}
+<script src="assets/js/addmanager.js"></script>
+	<!-- crumb -->
+	<section class="crumb top-25 layui-hide-xs">
+		<div class="layui-container">
+			<span class="layui-breadcrumb">
+				<a href="/"><i class="layui-icon layui-icon-home"></i></a>
+				<span lay-separator="">/</span>
+				<a href="/index">首页</a>
+				<span lay-separator="">/</span>
+				<a href="/manager">网站管理员列表</a>
+				<span lay-separator="">/</span>
+				<a href="/addmanager"><cite>添加网站管理员</cite></a>
+			</span>
+		</div>
+	</section>
+
+	<!-- body -->
+	<section class="body top-25">
+		<div class="layui-container">
+			<div class="layui-row layui-col-space20">
+				<div class="layui-col-md3">
+					<!-- subscribe -->
+					<div class="subscribe-tab">
+						<div id="dcMain">
+							<div id="manager" class="mainBox">
+								<h2><a href="/manager" class="actionBtn">返回列表</a>添加网站管理员</h2>
+								<form action="#" method="post" id="frm_UserInfo">
+									<table class="tableBasic">
+										<tr style="display:none;">
+											<td><input type="hidden" id="date" name="date" /></td>
+											<td><input type="hidden" id="oper" name="oper" value="0" /></td>
+										</tr>
+										<tr>
+											<!--<td width="100" align="right" style="display:none;"><input type="text" name="id" size="40" class="inpMain" value="0" /></td>-->
+											<td align="right">用户名称</td>
+											<td>
+												<input type="text" name="username" size="40" class="inpMain" id="user" maxlength="6" placeholder="用户名称只能输入6个字符" />
+											</td>
+										</tr>
+										<tr>
+											<td align="right">E-mail地址</td>
+											<td>
+												<input type="text" name="email" size="40" class="inpMain" id="email" placeholder="请输入邮箱地址" style="width: 95%" />
+											</td>
+										</tr>
+										<tr>
+											<td align="right">密码</td>
+											<td>
+												<input type="password" name="password" size="40" class="inpMain" id="pwd" maxlength="13" placeholder="密码只能输入13个字符" />
+											</td>
+										</tr>
+										<tr>
+											<td align="right">确认密码</td>
+											<td>
+												<input type="password" name="password_confirm" size="40" class="inpMain" id="password_confirm" maxlength="13" placeholder="确认密码只能输入13个字符" />
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<input type="hidden" name="token" value="5a58b748" id="token"/>
+												<input type="button" name="submit" class="btn" value="提交" onclick="submitUserInfo();" />
+											</td>
+										</tr>
+									</table>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{{template "footer" .}}
+</body>
+</html>

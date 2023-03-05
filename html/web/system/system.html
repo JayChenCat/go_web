@@ -1,0 +1,1537 @@
+{{template "header" .}}
+<script src="assets/js/system.js"></script>
+	<!-- crumb -->
+	<section class="crumb top-25 layui-hide-xs">
+		<div class="layui-container">
+			<span class="layui-breadcrumb">
+				<a href="/"><i class="layui-icon layui-icon-home"></i></a>
+				<span lay-separator="">/</span>
+				<a href="/index">首页</a>
+				<span lay-separator="">/</span>
+				<a href="#">系统设置</a>
+				<!--<a><cite></cite></a>-->
+			</span>
+		</div>
+	</section>
+
+	<!-- body -->
+	<section class="body top-25">
+		<div class="layui-container">
+			<div class="layui-row layui-col-space20">
+				<div class="layui-col-md3">
+					<!-- subscribe -->
+					<div class="subscribe-tab">
+						<div id="dcMain">
+							<div class="mainBox" id="main_setting">
+								<h2>
+									系统设置
+								</h2>
+								<div class="idTabs">
+									<ul class="tab">
+										<li>
+											<a href="#alarm"  >
+												报警设置
+											</a>
+										</li>
+										<li>
+											<a href="#account" >
+												账号管理
+											</a>
+										</li>
+										<li>
+											<a href="#communication" >
+												通讯设置
+											</a>
+										</li>
+										<li>
+											<a href="#system" >
+												系统配置
+											</a>
+										</li>
+									</ul>
+
+									<div class="items">
+										<!--<form id="settingForm" action="system.php?rec=update" method="post" enctype="multipart/form-data">-->
+										<div id="alarm">
+											<table class="tableBasic">
+												<tr>
+													<th colspan="4" >
+														疲劳驾驶报警
+													</th>
+												</tr>
+												<tr>
+													<td align="right" width="150">
+													</td>
+													<td align="center">
+														轻度疲劳
+													</td>
+													<td align="center">
+														中度疲劳
+													</td>
+													<td align="center">
+														重度疲劳
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="text" id="fatiguedSpeed_Low" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+													<td style="display:none">
+														<input type="text" id="fatiguedSpeed_Medium" size="2" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+													<td style="display:none">
+														<input type="text" id="fatiguedSpeed_Serious" size="2" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td style="font-size: 15px">
+														持续闭眼<input type="number" id="fatiguedTime_Low" size="2" style="font-size: 15px" class="inpMain" />秒
+													</td>
+													<td style="font-size: 15px">
+														持续闭眼<input type="number" id="fatiguedTime_Medium" size="2" style="font-size: 15px" class="inpMain" />秒
+													</td>
+													<td style="font-size: 15px">
+														持续闭眼<input type="number" id="fatiguedTime_Serious" size="2" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td>
+														<input type="number" id="fatiguedCD_Low" size="2" style="font-size: 15px" class="inpMain" />秒
+													</td>
+													<td>
+														<input type="number" id="fatiguedCD_Medium" size="2" style="font-size: 15px" class="inpMain" />秒
+													</td>
+													<td>
+														<input type="number" id="fatiguedCD_Serious" size="2" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="fatiguedTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+													<!--<td>
+						<input id="fatiguedTTS_Medium" type="text" size="80" class="inpMain" placeholder="告警1" />
+					</td>
+					<td>
+						<input id="fatiguedTTS_Serious" type="text" size="80" class="inpMain" placeholder="告警1" />
+					</td>-->
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="fatigued_AlarmSw" id="fatiguedAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="fatigued_AlarmSw" id="fatiguedAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="fatigued_alarm_sound" id="fatiguedAlarmSoundSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="fatigued_alarm_sound" id="fatiguedAlarmSoundSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="fatigued_alarm_picture" id="fatiguedUploadingPicSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="fatigued_alarm_picture" id="fatiguedUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="fatigued_alarm_video" id="fatiguedUploadingVideoSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="fatigued_alarm_video" id="fatiguedUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4" >
+														打电话报警
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="callingSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="callingTime" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="callingCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="callingTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="callingAlarmSw" id="callingAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="callingAlarmSw" id="callingAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="call_alarm_sound" id="callingAlarmSoundSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="call_alarm_sound" id="callingAlarmSoundSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="call_alarm_picture" id="callingUploadingPicSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="call_alarm_picture" id="callingUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="call_alarm_video" id="callingUploadingVideoSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="call_alarm_video" id="callingUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4" >
+														左顾右盼
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="laSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="laTime" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="text" id="laCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px;">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="laTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="laAlarmSw" id="laAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="laAlarmSw" id="laAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="lookaround_alarm_sound" id="laAlarmSoundSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="lookaround_alarm_sound" id="laAlarmSoundSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="lookaround_alarm_picture" id="laUploadingPicSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="lookaround_alarm_picture" id="laUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="lookaround_alarm_video" id="laUploadingVideoSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="lookaround_alarm_video" id="laUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4" >
+														抽烟
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="smokingSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="smokingTime" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="smokingCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="smokingTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="smokingAlarmSw" id="smokingAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="smokingAlarmSw" id="smokingAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="smoking_alarm_sound" id="smokingAlarmSoundSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="smoking_alarm_sound" id="smokingAlarmSoundSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="smoking_alarm_picture" id="smokingUploadingPicSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="smoking_alarm_picture" id="smokingUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="smoking_alarm_video" id="smokingUploadingVideoSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="smoking_alarm_video" id="smokingUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4" >
+														打哈欠
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="yawnSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="yawnCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="yawnTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="yawnAlarmSw" id="yawnAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="yawnAlarmSw" id="yawnAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="yawn_alarm_sound" id="yawnAlarmSoundSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="yawn_alarm_sound" id="yawnAlarmSoundSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="yawn_alarm_picture" id="yawnUploadingPicSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="yawn_alarm_picture" id="yawnUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="yawn_alarm_video" id="yawnUploadingVideoSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="yawn_alarm_video" id="yawnUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4" >
+														离岗
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="noFaceSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="noFaceTime" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="noFaceCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="noFaceTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px;">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="noFaceAlarmSw" id="noFaceAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="noFaceAlarmSw" id="noFaceAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="noface_alarm_sound" id="noFaceAlarmSoundSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="noface_alarm_sound" id="noFaceAlarmSoundSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="noface_alarm_picture" id="noFaceUploadingPicSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="noface_alarm_picture" id="noFaceUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="noface_alarm_video" id="noFaceUploadingVideoSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="noface_alarm_video" id="noFaceUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4" >
+														吃东西/闲聊
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="mouthSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="mouthTime" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="mouthCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="mouthTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="mouthAlarmSw" id="mouthAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="mouthAlarmSw" id="mouthAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="mouth_alarm_sound" id="mouthAlarmSoundSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="mouth_alarm_sound" id="mouthAlarmSoundSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="mouth_alarm_picture" id="mouthUploadingPicSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="mouth_alarm_picture" id="mouthUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="mouth_alarm_video" id="mouthUploadingVideoSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="mouth_alarm_video" id="mouthUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4" >
+														摄像头遮挡
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="occlusionSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="occlusionTime" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="occlusionCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="occlusionTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="occlusionAlarmSw" id="occlusionAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="occlusionAlarmSw" id="occlusionAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="cameraocclusion_alarm_sound" id="occlusionAlarmSoundSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="cameraocclusion_alarm_sound" id="occlusionAlarmSoundSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="cameraocclusion_alarm_picture" id="occlusionUploadingPicSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="cameraocclusion_alarm_picture" id="occlusionUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="cameraocclusion_alarm_video" id="occlusionUploadingVideoSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="cameraocclusion_alarm_video" id="occlusionUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4">
+														手比前方
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="handSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="handTime" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="handCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px;display: none;">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="handTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="handAlarmSw" id="handAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="handAlarmSw" id="handAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="hand_alarm_sound" id="handAlarmSoundSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="hand_alarm_sound" id="handAlarmSoundSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="hand_alarm_picture" id="handUploadingPicSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="hand_alarm_picture" id="handUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="hand_alarm_video" id="handUploadingVideoSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="hand_alarm_video" id="handUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4" >
+														摇臂
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="armSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="armTime" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="text" id="armCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="armTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="armAlarmSw" id="armAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="armAlarmSw" id="armAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警声音
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="arm_alarm_sound" id="armAlarmSoundSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="arm_alarm_sound" id="armAlarmSoundSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														上传报警图片
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="arm_alarm_picture" id="armUploadingPicSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="arm_alarm_picture" id="armUploadingPicSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														上传报警视频
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="arm_alarm_video" id="armUploadingVideoSw_false" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="arm_alarm_video" id="armUploadingVideoSw_true">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4">
+														红外阻断
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发车速
+													</td>
+													<td colspan="3">
+														<input type="number" id="blocingSpeed" size="50" style="font-size: 15px" class="inpMain" />km/h
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警触发时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="blocingTime" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px; display: none;">
+													<td align="right">
+														警报/上传冷却时间
+													</td>
+													<td colspan="3">
+														<input type="number" id="blocingCD" size="50" style="font-size: 15px" class="inpMain" />秒
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														TTS告警语音
+													</td>
+													<td colspan="3">
+														<input id="blocingTTS" type="text" size="80" class="inpMain" placeholder="告警1" />
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														报警开关
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="blocingAlarmSw" id="blocingAlarmSw_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="blocingAlarmSw" id="blocingAlarmSw_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="4">
+														行驶记录设置
+													</th>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														<label id="Ch1_Name">CAM1通道</label>
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="Ch1_IsAlarmDvr" id="Ch1_IsAlarmDvr_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="Ch1_IsAlarmDvr" id="Ch1_IsAlarmDvr_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr style="font-size: 15px">
+													<td align="right">
+														<label id="Ch2_Name">CAM2通道</label>
+													</td>
+													<td colspan="3">
+														<label for="site_closed_0">
+															<input type="radio" name="Ch2_IsAlarmDvr" id="Ch2_IsAlarmDvr_false">
+															关闭
+														</label>
+														<label for="site_closed_1" style="margin-left: 50px">
+															<input type="radio" name="Ch2_IsAlarmDvr" id="Ch2_IsAlarmDvr_true" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+											</table>
+										</div>
+										<!--显示设置-->
+										<div id="account">
+											<table width="70%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+												<tr>
+													<th colspan="2">
+														主机FTP账号
+													</th>
+												</tr>
+												<tr>
+													<td align="right">
+														用户名
+													</td>
+													<td>
+														<input type="text" id="ftpUser" size="80" class="inpMain" />
+													</td>
+												</tr>
+												<tr>
+													<td align="right">
+														密码
+													</td>
+													<td>
+														<input type="password" id="ftpPwd" size="80" class="inpMain" />
+													</td>
+												</tr>
+												<tr>
+													<th colspan="2">
+														OCS FTP账号
+													</th>
+												</tr>
+												<tr>
+													<td align="right">
+														用户名
+													</td>
+													<td>
+														<input type="text" id="ocsFtpUser" size="80" class="inpMain" />
+													</td>
+												</tr>
+												<tr>
+													<td align="right">
+														密码
+													</td>
+													<td>
+														<input type="password" id="ocsFtpPwd" size="80" class="inpMain" />
+													</td>
+												</tr>
+												<tr>
+													<th colspan="2" >
+														RTSP账号
+													</th>
+												</tr>
+												<tr>
+													<td align="right">
+														用户名
+													</td>
+													<td>
+														<input type="text" id="rtspUser" size="80" class="inpMain" />
+													</td>
+												</tr>
+												<tr>
+													<td align="right">
+														密码
+													</td>
+													<td>
+														<input type="password" id="rtspPwd" size="80" class="inpMain" />
+													</td>
+												</tr>
+											</table>
+										</div>
+										<!--自定义-->
+										<div id="communication">
+											<table width="70%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+												<tr>
+													<th width="131" colspan="2" >
+														本机
+													</th>
+												</tr>
+												<tr>
+													<td align="right">
+														本机IP
+													</td>
+													<td>
+														<input type="text" id="localIP" value="" size="80" class="inpMain" />
+														<p class="cue">
+															本设备在局域网中的IP地址
+														</p>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">
+														本机端口
+													</td>
+													<td>
+														<input type="number" id="localPort" size="80" class="inpMain" />
+														<p class="cue">
+															本机监听的通讯端口
+														</p>
+													</td>
+												</tr>
+												<tr>
+													<th width="131" colspan="2" >
+														OCS
+													</th>
+												</tr>
+												<tr>
+													<td align="right">
+														OCS主机IP
+													</td>
+													<td>
+														<input type="text" id="ocsIP" size="80" class="inpMain" />
+														<p class="cue">
+															设备可以通过此IP地址访问OCS主机
+														</p>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">
+														OCS主机端口
+													</td>
+													<td>
+														<input type="number" id="ocsPort" size="80" class="inpMain" />
+														<p class="cue">
+															OCS主机监听的通讯端口
+														</p>
+													</td>
+												</tr>
+											</table>
+										</div>
+										<div id="system">
+											<table width="70%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+												<tr>
+													<th colspan="2" >
+														车辆配置
+													</th>
+												</tr>
+												<tr>
+													<td align="right">
+														机车号
+													</td>
+													<td>
+														<input type="text" id="locomotiveID" size="80" class="inpMain" />
+													</td>
+												</tr>
+												<tr>
+													<td align="right">
+														主机所在端
+													</td>
+													<td>
+														<select id="HostSide">
+															<option value="1" selected>一端</option>
+															<option value="2">二端</option>
+														</select>
+													</td>
+												</tr>
+
+												<tr>
+													<th colspan="2" >
+														摄像头配置
+													</th>
+												</tr>
+												<tr>
+													<td align="right">
+														摄像头1
+													</td>
+													<td>
+														<label for="site_closed_0">
+															<input id="cam1Open_false" type="radio" name="cam1Open">
+															关闭
+														</label>
+														<label for="site_closed_1">
+															<input id="cam1Open_true" type="radio" name="cam1Open" checked="checked">
+															开启
+														</label>
+														<label>
+															通道号:
+															<select id="channelID0">
+																<option value="0" selected>0</option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+																<option value="6">6</option>
+																<option value="7">7</option>
+																<option value="8">8</option>
+																<option value="9">9</option>
+																<option value="10">10</option>
+																<option value="11">11</option>
+																<option value="12">12</option>
+																<option value="13">13</option>
+																<option value="14">14</option>
+																<option value="15">15</option>
+																<option value="16">16</option>
+															</select>
+														</label>
+														<label style="margin-left: 50px;margin-right: 50px">
+															通道名称:
+															<input type="text" id="channelName0" size="80" class="inpMain" placeholder="最长支持8个中文字符" onblur="Textblurs();" />
+														</label>
+														<label style="display:none;">
+															IP:
+															<input id="cam1IP" type="text" size="80" class="inpMain" />
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">
+														摄像头2
+													</td>
+													<td>
+														<label for="site_closed_0">
+															<input id="cam2Open_false" type="radio" name="cam2Open" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1">
+															<input id="cam2Open_true" type="radio" name="cam2Open">
+															开启
+														</label>
+														<label>
+															通道号:
+															<select id="channelID1">
+																<option value="0">0</option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+																<option value="6">6</option>
+																<option value="7">7</option>
+																<option value="8">8</option>
+																<option value="9">9</option>
+																<option value="10">10</option>
+																<option value="11">11</option>
+																<option value="12">12</option>
+																<option value="13">13</option>
+																<option value="14">14</option>
+																<option value="15">15</option>
+																<option value="16">16</option>
+															</select>
+														</label>
+														<label style="margin-left: 50px;margin-right: 50px">
+															通道名称:
+															<input type="text" id="channelName1" size="80" class="inpMain" placeholder="最长支持8个中文字符" onblur="Textblurs();" />
+														</label>
+														<label style="display:none;">
+															IP:
+															<input id="cam2IP" type="text" size="80" class="inpMain" />
+														</label>
+													</td>
+												</tr>
+												<tr style="display:none;">
+													<td align="right">
+														摄像头3
+													</td>
+													<td>
+														<label for="site_closed_0">
+															<input id="cam3Open_false" type="radio" name="cam3Open" checked="checked">
+															关闭
+														</label>
+														<label for="site_closed_1">
+															<input id="cam3Open_true" type="radio" name="cam3Open">
+															开启
+														</label>
+														<label>
+															通道号:
+															<select id="channelID2">
+																<option value="0">0</option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+																<option value="6">6</option>
+																<option value="7">7</option>
+																<option value="8">8</option>
+																<option value="9">9</option>
+																<option value="10">10</option>
+																<option value="11">11</option>
+																<option value="12">12</option>
+																<option value="13">13</option>
+																<option value="14">14</option>
+																<option value="15">15</option>
+																<option value="16">16</option>
+															</select>
+														</label>
+														<label style="margin-left: 50px;margin-right: 50px">
+															通道名称:
+															<input type="text" id="channelName2" size="80" class="inpMain" placeholder="最长支持8个中文字符" onblur="Textblurs();" />
+														</label>
+														<label style="display:none;">
+															IP:
+															<input id="cam3IP" type="text" size="80" class="inpMain" />
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="2" >
+														外设配置
+													</th>
+												</tr>
+												<tr>
+													<td align="right">
+														GPS
+													</td>
+													<td>
+														<label for="site_closed_0">
+															<input id="gps_false" type="radio" name="gps">
+															关闭
+														</label>
+														<label for="site_closed_1">
+															<input id="gps_true" type="radio" name="gps" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">
+														WIFI
+													</td>
+													<td>
+														<label for="site_closed_0">
+															<input id="wifi_false" type="radio" name="wifi">
+															关闭
+														</label>
+														<label for="site_closed_1" >
+															<input id="wifi_true" type="radio" name="wifi" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">
+														4G
+													</td>
+													<td>
+														<label for="site_closed_0">
+															<input id="4G_false" type="radio" name="4G">
+															关闭
+														</label>
+														<label for="site_closed_1">
+															<input id="4G_true" type="radio" name="4G" checked="checked">
+															开启
+														</label>
+													</td>
+												</tr>
+												<tr>
+													<th colspan="2" >
+														声音配置
+													</th>
+												</tr>
+												<tr>
+													<td align="right">
+														告警音量
+													</td>
+													<td>
+														<input id="volume" type="range" class="inpMain" />
+													</td>
+												</tr>
+											</table>
+										</div>
+										<table  border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+											<tr>
+												<td colspan="4" align="center">
+													<input type="hidden" name="token" value="5a58b748" id="token"/>
+													<input id="commitBT" class="btn" type="submit" value="提交" style="font-size: 15px" onclick="sendConfiguration();" />
+												</td>
+											</tr>
+										</table>
+										<!--</form>-->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--灰色背景层-->
+						<div id="div_Disable" class="div_Disable">不是管理员无法编辑配置，请使用管理员账户登录!</div>
+						<div class="clear">
+						</div>
+						<div id="dcFooter">
+							<div id="footer">
+								<div class="line">
+								</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+	</section>
+
+{{template "footer" .}}
+</body>
+</html>

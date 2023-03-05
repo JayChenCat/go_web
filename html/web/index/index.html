@@ -1,0 +1,69 @@
+{{template "header" .}}
+<script type="text/javascript" src="assets/js/index.js"></script>
+	<!-- crumb -->
+	<section class="crumb top-25 layui-hide-xs">
+		<div class="layui-container">
+			<span class="layui-breadcrumb">
+				<a href="/index"><i class="layui-icon layui-icon-home"></i></a>
+				<a href="/index">管理首页</a>
+			</span>
+		</div>
+	</section>
+	<!-- body -->
+	<section class="body top-25">
+		<div class="layui-container">
+			<div class="layui-row layui-col-space20">
+				<div class="layui-col-md3">
+					<div class="subscribe-tab">
+						<!-- 设备基本信息 -->
+						<div id="devTitle">
+							<div id="dev" class="devandversionBox">
+								<h2>设备基本信息</h2>
+								<table border="0" cellspacing="0" cellpadding="7" class="tableBasic">
+									<tr>
+										<td align="right">序列号：</td>
+										<td align="right"><strong id="snText">{{.equipmentinfo.Sn}}</strong></td>
+										<td align="right">功能模块:</td>
+										<td align="right"><strong id="moduleText">{{.equipmentinfo.Module}}</strong></td>
+									</tr>
+									<tr>
+										<td align="right">设备IP：</td>
+										<td align="right"><strong id="ipText">{{.equipmentinfo.DeviceIP}}</strong></td>
+										<td align="right">系统语言：</td>
+										<td align="right"><strong>{{.equipmentinfo.Language}}</strong></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<!-- 版本信息 -->
+						<div id="boxTitle">
+							<div id="version" class="devandversionBox">
+								<h2>版本信息</h2>
+								<table border="0" cellspacing="0" cellpadding="7" class="tableBasic">
+									<tr>
+										<td align="right" valign="top">设备应用程序版本：</td>
+										<td align="right" id="armVersionText" valign="top">{{.versioninfo.ArmVersion}}</td>
+									</tr>
+									<tr>
+										<td align="right" valign="top">升级程序版本：</td>
+										<td align="right" id="upgradeVersionText" valign="top">{{.versioninfo.UpgradeVersion}}</td>
+									</tr>
+									<tr>
+										<td align="right" valign="top">Web应用程序版本：</td>
+										<td align="right" valign="top">{{.versioninfo.WebVersion}}</td>
+									</tr>
+									<tr>
+										<td align="right" valign="top">Web 服务器：</td>
+										<td align="right" id="webServerText" valign="top">{{.versioninfo.WebServerName}}</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	{{template "footer" .}}
+</body>
+</html>
