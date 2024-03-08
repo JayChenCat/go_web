@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-//初始化数据库使用
+//初始化数据库的使用
 var db *gorm.DB
 
 func Init() *gorm.DB {
